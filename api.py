@@ -15,7 +15,17 @@ try:
     print("✅ Model loaded successfully")
 except Exception as e:
     print(f"❌ Error loading model: {e}")
-    MODEL = None
+    # Try to load from alternative locations
+    try:
+        MODEL = tf.keras.models.load_model("skin_classifier_model_1.keras")
+        print("✅ Model loaded from skin_classifier_model_1.keras")
+    except:
+        try:
+            MODEL = tf.keras.models.load_model("skin_classifier_model_2.keras")
+            print("✅ Model loaded from skin_classifier_model_2.keras")
+        except:
+            print("❌ No model found. Please ensure model file exists.")
+            MODEL = None
 
 IMG_SIZE = (224, 224)
 

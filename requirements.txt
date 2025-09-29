@@ -9,4 +9,5 @@ tqdm==4.67.1
 scikit-learn==1.5.2
 matplotlib==3.9.2
 seaborn==0.13.2
+python-multipart==0.0.12
 
